@@ -14,23 +14,35 @@ const subtract = document.getElementById("subtract");
 
 let counter = 0;
 
-add.addEventListener("click", () => {
-    counter++
-    if(counter > 0 && counter <= 5){
-        
-        counterNumber.textContent = counter;
+function addNumber(){
+    add.addEventListener("click", () => {
+        /*if(counter === 5){
+           return alert("5 es el tope del contador")
+        }*/
+        counter++
+        if(counter <= 5){
+            counterNumber.textContent = counter; 
+        }
         if(counter === 5){
-            alert("5 es el tope del contador")
+            add.disabled = true
         }
-    }
-})
+        
+    })
+}
+addNumber()
 
-subtract.addEventListener("click", () => {
-    counter--
-    if(counter >= 0){
-        counterNumber.textContent = counter;
-        if(counter === 0){
-            alert("Cero es el tope!")
+function subtractNumber(){
+    subtract.addEventListener("click", () => {
+        /*if(counter === 0){
+           return alert("Cero es el tope!")
+        }*/
+        counter--
+        if(counter >= 0){
+            counterNumber.textContent = counter;
         }
-    }
-})
+        if(counter === 0){
+            subtract.disabled = true
+        }
+    })
+}
+subtractNumber()
