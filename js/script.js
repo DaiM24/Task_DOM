@@ -16,33 +16,37 @@ let counter = 0;
 
 function addNumber(){
     add.addEventListener("click", () => {
-        /*if(counter === 5){
-           return alert("5 es el tope del contador")
-        }*/
+        if(counter === 5){
+            alert("5 es el tope del contador")
+            add.disabled = true
+        }
         counter++
         if(counter <= 5){
             counterNumber.textContent = counter; 
+            subtract.disabled = false
         }
-        if(counter === 5){
+        /*if(counter === 5){
             add.disabled = true
-        }
-        
+        }*/
     })
 }
 addNumber()
 
 function subtractNumber(){
     subtract.addEventListener("click", () => {
-        /*if(counter === 0){
-           return alert("Cero es el tope!")
-        }*/
+        if(counter === 0){
+            alert("Cero es el tope!")
+            subtract.disabled = true
+        }
         counter--
         if(counter >= 0){
             counterNumber.textContent = counter;
+            add.disabled = false
         }
-        if(counter === 0){
+        /*if(counter === 0){
             subtract.disabled = true
-        }
+            add.disabled = false
+        }*/
     })
 }
 subtractNumber()
